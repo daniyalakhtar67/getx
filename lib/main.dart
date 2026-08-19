@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:getx/route/routes.dart';
+import 'package:getx/route/routes_name.dart';
 import 'package:getx/view/home/homescreen.dart';
 import 'package:get/get.dart';
 void main() {
@@ -16,7 +18,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
       ),
-      home: Homescreen(),
+      getPages: AppRoutes.approutes(),
+      initialRoute: RoutesName.HomeScreen,
     );
   }
 }
