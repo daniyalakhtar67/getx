@@ -3,6 +3,7 @@ import 'package:getx/route/routes.dart';
 import 'package:getx/route/routes_name.dart';
 import 'package:getx/view/home/homescreen.dart';
 import 'package:get/get.dart';
+import 'package:getx/view/res/localization/lan.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -20,6 +21,9 @@ class MyApp extends StatelessWidget {
       ),
       getPages: AppRoutes.approutes(),
       initialRoute: RoutesName.Testing,
+      translations: language(),
+      locale: Locale('en','US'),
+      fallbackLocale: Locale('en','US'),
     );
   }
 }

@@ -16,14 +16,32 @@ class _TestingState extends State<Testing> {
         title: Text('Testing'),
         centerTitle: true,
       ),
-      body:   Container(
-        color: Colors.orange,
-        // height: MediaQuery.of(context).size.height*1,
-        height: Get.height * 1,
-        child: Center(
-          child: Text('Center'),
-        ),
-      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          ListTile(
+            title: Text('name'.tr),
+            subtitle: Text('message'.tr),
+          ),
+          SizedBox(height: 50),
+          Wrap(
+            spacing: 8,
+            alignment: WrapAlignment.center,
+            children: [
+              OutlinedButton(onPressed: (){
+                Get.updateLocale(Locale('en',"US"));
+              }, child: Text('English')),
+              OutlinedButton(onPressed: (){
+                Get.updateLocale(Locale('ur','PK'));
+              }, child: Text('Urdu')),
+              OutlinedButton(onPressed: (){
+                Get.updateLocale(Locale('sd','PK'));
+              }, child: Text('Sindhi'))
+            ],
+          ),
+        ],
+      )
     );
   }
 }
