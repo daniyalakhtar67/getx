@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:getx/view/controller/counter_controller.dart';
 
 class S2 extends StatefulWidget {
   const S2({super.key});
@@ -9,21 +10,25 @@ class S2 extends StatefulWidget {
 }
 
 class _S2State extends State<S2> {
+  final CounterController counterController = Get.put(CounterController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Screen 2'),
+        centerTitle: true,
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
+      body:Column(
         children: [
-          TextButton(onPressed: (){
-            Get.back();
-          }, child: Center(child: Text('Go Back'))),
+              Obx((){
+                return Text(counterController.counter.toString());
+              }),
         ],
       ),
+      floatingActionButton: FloatingActionButton(onPressed: (){
+        counterController.incrementCounter();
+      }),
+
     );
   }
 }
