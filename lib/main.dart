@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       getPages: AppRoutes.approutes(),
-      initialRoute: RoutesName.S2,
+      initialRoute: RoutesName.S1,
       translations: language(),
       locale: Locale('en','US'),
       fallbackLocale: Locale('en','US'),

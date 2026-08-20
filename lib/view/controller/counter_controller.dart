@@ -6,4 +6,8 @@ class CounterController extends GetxController{
     counter.value++;
     print(counter.value);
   }
+  RxDouble opacity = .4.obs;
+  void setOpacity(double value){
+    opacity.value = value;
+  }
 }
