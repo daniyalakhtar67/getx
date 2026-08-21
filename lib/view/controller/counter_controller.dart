@@ -15,4 +15,11 @@ class controller extends GetxController{
   void setnoti(bool value){
     notification.value = value;
   }
+
+  RxList<String>  FruitsName = ['orange' ,
+    'Banana',
+    'Apple'
+  ].obs;
+  RxList temp = [].obs;
+
 }
