@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 
-class CounterController extends GetxController{
+class controller extends GetxController{
   RxInt counter = 1.obs;
   incrementCounter(){
     counter.value++;
@@ -9,5 +9,10 @@ class CounterController extends GetxController{
   RxDouble opacity = .4.obs;
   void setOpacity(double value){
     opacity.value = value;
+  }
+  RxString name = 'Notification'.obs;
+  RxBool notification = false.obs;
+  void setnoti(bool value){
+    notification.value = value;
   }
 }

@@ -11,7 +11,7 @@ class S1 extends StatefulWidget {
 }
 
 class _S1State extends State<S1> {
-  CounterController counterController = Get.put(CounterController());
+  controller counterController = Get.put(controller());
   double opacity = .4;
   @override
   Widget build(BuildContext context) {

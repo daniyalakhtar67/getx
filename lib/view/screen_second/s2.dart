@@ -10,7 +10,7 @@ class S2 extends StatefulWidget {
 }
 
 class _S2State extends State<S2> {
-  final CounterController counterController = Get.put(CounterController());
+  final controller counterController = Get.put(controller());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
