@@ -12,8 +12,10 @@ class S1 extends StatefulWidget {
 
 class _S1State extends State<S1> {
   CounterController counterController = Get.put(CounterController());
+  double opacity = .4;
   @override
   Widget build(BuildContext context) {
+    print('build');
     return Scaffold(
       appBar: AppBar(
         title: Text('Screen 1'),
@@ -22,24 +24,29 @@ class _S1State extends State<S1> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Container(
+          Obx(()=> Container(
             width: 200,
             height: 200,
-            color:Colors.orange.withOpacity(counterController.opacity.value),
+            color: Colors.orange.withOpacity(counterController.opacity.value),
+          )),
+          Obx(()=>Slider(value: counterController.opacity.value, onChanged: (value){
+            counterController.setOpacity(value);
+          }))
+          // Center(
+          //   child: Container(
+          //     width: 200,
+          //     height: 200,
+          //     color:Colors.orange.withOpacity(opacity),
+          //     ),
+          // ),
+          // Slider(value: opacity, onChanged: (value){
+          //   // print(value);
+          //   opacity = value;
+          //   setState(() {
+          //
+          //   });
+          // })
 
-            ),
-          Obx(()=>      Container(
-            width: 200,
-            height: 200,
-            color:Colors.orange.withOpacity(counterController.opacity.value),
-
-          ),
-          ),
-          Obx(()=>
-              Slider(value: CounterController().opacity.value, onChanged: (value){
-                CounterController().setOpacity(value);
-              })
-          )
         ],
       ),
     );
