@@ -26,7 +26,6 @@ class _Ex5State extends State<Ex5> {
                 backgroundImage: con.imagepath.isNotEmpty?
                     FileImage(File(con.imagepath.value)):null,
               ),
-
             ),
             TextButton(onPressed: (){
               con.getImage();
@@ -37,3 +36,4 @@ class _Ex5State extends State<Ex5> {
     );
   }
 }
+

@@ -1,4 +1,8 @@
+import 'dart:convert';
+
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:http/http.dart'as http;
 import 'package:image_picker/image_picker.dart';
 
 class controller extends GetxController{
@@ -31,4 +35,19 @@ class controller extends GetxController{
     }
   }
 
+  final email = TextEditingController().obs;
+  final password = TextEditingController().obs;
+  void loginApi()async{
+    final response = await http.post(Uri.parse('https://reqres.in/api/login '),
+    body: {
+      'email':email.value.text,
+        'password':password.value.text,
+        }
+    );
+    var data = jsonDecode(response.body.toString());
+    print(response.statusCode);
+    if(response.statusCode==200){
+
+    }
+  }
 }

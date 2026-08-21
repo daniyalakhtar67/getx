@@ -6,4 +6,5 @@ class RoutesName {
   static const String Ex3 = '/Ex3';
   static const String Ex4 = '/Ex4';
   static const String Ex5 = '/Ex5';
+  static const String Login = '/Login';
 }
