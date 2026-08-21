@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:getx/route/routes_name.dart';
+import 'package:getx/view/example_5/Ex5.dart';
 import 'package:getx/view/home/homescreen.dart';
 import 'package:getx/view/screen_one/s1.dart';
 import 'package:getx/view/screen_second/s2.dart';
@@ -16,5 +17,6 @@ class AppRoutes{
     GetPage(name: RoutesName.Testing, page: ()=>Testing()),
     GetPage(name: RoutesName.Ex3, page: ()=>Ex3()),
     GetPage(name: RoutesName.Ex4, page: ()=>Ex4()),
+    GetPage(name: RoutesName.Ex5, page: ()=>Ex5()),
   ];
 }
