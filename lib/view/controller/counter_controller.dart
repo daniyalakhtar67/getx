@@ -37,17 +37,35 @@ class controller extends GetxController{
 
   final email = TextEditingController().obs;
   final password = TextEditingController().obs;
+  RxBool loading = false.obs;
   void loginApi()async{
-    final response = await http.post(Uri.parse('https://reqres.in/api/login '),
-    body: {
-      'email':email.value.text,
+    loading.value=true;
+    try{
+      Map newdata = {   // uploading Raw data
+        'email':email.value.text,
         'password':password.value.text,
-        }
-    );
-    var data = jsonDecode(response.body.toString());
-    print(response.statusCode);
-    if(response.statusCode==200){
+      };
+      final response = await http.post(Uri.parse('https://reqres.in/api/login '),
+          // body: {
+          //   'email':email.value.text,
+          //   'password':password.value.text,
+          // }
 
+        // ..... for raw data
+        body: jsonEncode(newdata),
+      );
+      var data = jsonDecode(response.body.toString());
+      // print(response.statusCode);
+      if(response.statusCode==200){
+        loading.value = false;
+        Get.snackbar('Login Successful', data['error']);
+      }else{
+        loading.value = false;
+        Get.snackbar('Login Failed', data['error']);
+      }
+    }catch(e){
+      loading.value = false;
+      Get.snackbar("Exception", e.toString());
     }
   }
 }

@@ -42,20 +42,22 @@ class _LoginState extends State<Login> {
               ),
             ),
             SizedBox(height: 20),
-            InkWell(
-              onTap: (){
-                con.loginApi();
-              },
-              child: Container(
-                width: 100,
-                height: 50,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: Colors.blue,
-                ),
-                child: Center(child: Text('Login',style: TextStyle(color: Colors.white))),
-              ),
-            ),
+           Obx((){
+             return  InkWell(
+               onTap: (){
+                 con.loginApi();
+               },
+               child:con.loading.value ? CircularProgressIndicator(): Container(
+                 width: 100,
+                 height: 50,
+                 decoration: BoxDecoration(
+                   borderRadius: BorderRadius.circular(20),
+                   color: Colors.blue,
+                 ),
+                 child: Center(child: Text('Login',style: TextStyle(color: Colors.white))),
+               ),
+             );
+           })
           ],
         ),
       ),
